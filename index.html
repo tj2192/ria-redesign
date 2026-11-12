@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="cache-control" content="no-store">
+<title>Ria — Interactive Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=1794467376">
+</head>
+<body>
+  <aside class="guide" id="guide" aria-label="Prototype guide"></aside>
+
+  <!-- Right-hand chrome. The pane is written out in full rather than rendered
+       from JS, so opening it is a CSS transition on a live node, not a rebuild. -->
+  <div class="corner">
+    <a class="cbtn cbtn--link" href="https://rounded-arthropod-65c.notion.site/Portfolio-3ab5324db4e383c99e5c0174261adb4d"
+       target="_blank" rel="noopener noreferrer">
+      Portfolio
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M14 5h5v5M19 5l-8 8M17 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4"/>
+      </svg>
+    </a>
+    <button class="cbtn" data-act="note-open" aria-controls="note">What I don&rsquo;t know</button>
+  </div>
+
+  <div class="note-scrim" data-act="note-close" aria-hidden="true"></div>
+  <aside class="note" id="note" aria-label="What I don&rsquo;t know" aria-hidden="true">
+    <div class="note__top">
+      <div>
+        <div class="guide__eyebrow">Ria &middot; context</div>
+        <h2 class="note__title">What I don&rsquo;t know</h2>
+      </div>
+      <button class="iconbtn press note__x" data-act="note-close" aria-label="Close">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+             stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="note__body">
+      <p>One thing worth mentioning: this is an outside-in redesign. I&rsquo;m looking at Ria from
+      the user&rsquo;s side, without knowing the decisions and constraints behind the current
+      experience.</p>
+
+      <p>I don&rsquo;t know HealthifyMe&rsquo;s technical architecture, how reliably Ria can
+      interpret and update food records, the limitations of its nutrition database, or the cost of
+      running more complex AI interactions. I also haven&rsquo;t accounted for the legal and
+      regulatory considerations around personalized nutrition advice, or the business priorities
+      the team is working towards.</p>
+
+      <p>I&rsquo;m sure the team has explored many of these problems already. Some of the decisions
+      I&rsquo;ve questioned may be deliberate trade-offs.</p>
+
+      <p>So I&rsquo;m not presenting this as a better solution, but as an exploration of what the
+      experience could look like with fewer conversational steps and more direct interaction.</p>
+
+      <p class="note__close">I&rsquo;d be interested to understand what constraints shaped the
+      existing design.</p>
+    </div>
+  </aside>
+  <main class="stage">
+    <div class="device" role="application" aria-label="Ria prototype">
+      <div class="device__frame">
+        <div class="device__screen">
+          <div class="statusbar" aria-hidden="true">
+            <span class="statusbar__time" id="clock">9:41</span>
+            <span class="statusbar__island"></span>
+            <span class="statusbar__right">
+              <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg>
+              <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 11.2 6.1 9.1A2.7 2.7 0 0 1 8 8.3c.73 0 1.4.3 1.9.8zm3.2-3.5-1.1-1.2A4.6 4.6 0 0 0 8 5.8c-1.6 0-3 .66-4.1 1.7L2.8 6.3A6.6 6.6 0 0 1 8 4c2 0 3.9.86 5.2 2.3zM15.2 5l-1.1-1.2A8.6 8.6 0 0 0 8 1.4 8.6 8.6 0 0 0 1.9 3.8L.8 2.6A10.1 10.1 0 0 1 8 0c2.8 0 5.3 1.1 7.2 2.9z"/></svg>
+              <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.2" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="15" height="8" rx="2" fill="currentColor"/><path d="M23 4v4a2 2 0 0 0 0-4z" fill="currentColor" opacity=".4"/></svg>
+            </span>
+          </div>
+          <div class="app" id="app"></div>
+          <div class="overlay" id="overlay"></div>
+          <div class="toast-host" id="toasts" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+    <footer class="stage__foot">
+      <span id="crumb">Home</span>
+      <button type="button" id="restart" class="restart">Restart</button>
+    </footer>
+  </main>
+  <script src="app.js?v=1794467376"></script>
+</body>
+</html>
